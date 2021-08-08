@@ -194,6 +194,45 @@ def check_array_for_infinity_elements(input_array=None, print_array=False):
 # endregion
 
 
+# region 7.Write a NumPy program to test element-wise for NaN of a given array.
+def check_array_for_nan_elements(input_array=None, print_array=False):
+    """Check if input array have NaN elements.
+
+            :param input_array:
+                Array that should be checked.
+            :param print_array:
+                Print input array in answer string - yes or no.
+            :return:
+                Tuple.
+                Boolean - is array contains NaN elements.
+                String - result in natural language.
+            """
+
+    have_nan_elements = False
+    check_list = np.isnan(input_array)
+    nan_indexes = []
+
+    for index, element in enumerate(check_list):
+        if element:
+            nan_indexes.append(index)
+            have_nan_elements = True
+
+    result_string = 'Array'
+
+    if print_array:
+        result_string += ' ' + str(input_array) + ' '
+    else:
+        result_string += ' '
+
+    if have_nan_elements:
+        result_string += 'have NaN elements at indexes ' + str(nan_indexes) + '.'
+    else:
+        result_string += 'does not have any NaN elements.'
+
+    return have_nan_elements, result_string
+# endregion
+
+
 if __name__ == '__main__':
     # region Exercise 1
     CP.print_w_color('Exercise 1:\n--------------------', CP.GREEN)
@@ -236,3 +275,10 @@ if __name__ == '__main__':
     CP.print_w_color('\t' + check_array_for_infinity_elements(list_with_inf, True)[1], CP.BLUE)
     CP.print_w_color('\t' + check_array_for_infinity_elements(list_without_inf, True)[1], CP.BLUE)
     # endregion
+    # region Exercise 7.
+    CP.print_w_color('\nExercise 7:\n--------------------', CP.GREEN)
+    list_with_nan = np.array([np.nan, 3, 6, 8, np.inf, 77, np.nan])
+    CP.print_w_color('\t' + check_array_for_nan_elements(list_with_nan, True)[1], CP.BLUE)
+    CP.print_w_color('\t' + check_array_for_nan_elements(list_without_inf, True)[1], CP.BLUE)
+    # endregion
+
