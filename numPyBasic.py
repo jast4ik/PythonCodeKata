@@ -65,7 +65,7 @@ def does_array_have_zeros(input_array=[], print_array=False):
     :param input_array:
         Array that should be checked.
     :param print_array:
-        Print array in answer string - tes or no.
+        Print array in answer string - yes or no.
     :return:
         Tuple.
         Boolean - is array contains zeros
@@ -83,6 +83,38 @@ def does_array_have_zeros(input_array=[], print_array=False):
         return_string += 'does not contain zeros.'
     else:
         return_string += 'contains zeros.'
+
+    return return_bool, return_string
+# endregion
+
+
+# region 4. Write a NumPy program to test whether any of the elements of a given array is non-zero.
+def does_array_have_non_zeros(input_array=[], print_array=False):
+    """Check if input array have non-zero elements.
+    First is boolean, second is string that
+    describes result in natural language.
+
+    :param input_array:
+        Array that should be checked.
+    :param print_array:
+        Print array in answer string - yes or no.
+    :return:
+        Tuple.
+        Boolean - is array contains zeros
+        String - result in natural language
+    """
+    return_string = 'Array'
+    return_bool = np.any(input_array)
+
+    if print_array:
+        return_string += ' ' + str(input_array) + ' '
+    else:
+        return_string += ' '
+
+    if return_bool:
+        return_string += 'contains non-zero values.'
+    else:
+        return_string += 'contains only zeros.'
 
     return return_bool, return_string
 # endregion
@@ -110,4 +142,10 @@ if __name__ == '__main__':
     CP.print_w_color('\nExercise 3:\n--------------------', CP.GREEN)
     CP.print_w_color('\t' + does_array_have_zeros(list_without_zeros, True)[1], CP.BLUE)
     CP.print_w_color('\t' + does_array_have_zeros(list_with_zeros, True)[1], CP.BLUE)
+    # endregion
+    # region Exercise 4.
+    list_all_zeros = [0, 0, 0]
+    CP.print_w_color('\nExercise 4:\n--------------------', CP.GREEN)
+    CP.print_w_color('\t' + does_array_have_non_zeros(list_with_zeros, True)[1], CP.BLUE)
+    CP.print_w_color('\t' + does_array_have_non_zeros(list_all_zeros, True)[1], CP.BLUE)
     # endregion
