@@ -155,6 +155,45 @@ def check_array_for_infinite_elements(input_array=None, print_array=False):
 # endregion
 
 
+# region 6. Write a NumPy program to test element-wise for positive or negative infinity.
+def check_array_for_infinity_elements(input_array=None, print_array=False):
+    """Check if input array have infinity (positive or negative) elements.
+
+            :param input_array:
+                Array that should be checked.
+            :param print_array:
+                Print input array in answer string - yes or no.
+            :return:
+                Tuple.
+                Boolean - is array contains infinity elements.
+                String - result in natural language.
+            """
+
+    have_infinity_elements = False
+    check_list = np.isinf(input_array)
+    infinity_indexes = []
+
+    for index, element in enumerate(check_list):
+        if element:
+            infinity_indexes.append(index)
+            have_infinity_elements = True
+
+    result_string = 'Array'
+
+    if print_array:
+        result_string += ' ' + str(input_array) + ' '
+    else:
+        result_string += ' '
+
+    if have_infinity_elements:
+        result_string += 'have infinity elements at indexes ' + str(infinity_indexes) + '.'
+    else:
+        result_string += 'does not have any infinity elements.'
+
+    return have_infinity_elements, result_string
+# endregion
+
+
 if __name__ == '__main__':
     # region Exercise 1
     CP.print_w_color('Exercise 1:\n--------------------', CP.GREEN)
@@ -190,4 +229,10 @@ if __name__ == '__main__':
     list_without_inf = np.array([1, 2, 6, 8])
     CP.print_w_color('\t' + check_array_for_infinite_elements(list_with_inf, True)[1], CP.BLUE)
     CP.print_w_color('\t' + check_array_for_infinite_elements(list_without_inf, True)[1], CP.BLUE)
+    # endregion
+    # region Exercise 6.
+    CP.print_w_color('\nExercise 6:\n--------------------', CP.GREEN)
+    list_with_inf = np.array([np.nan, 3, 6, 8, np.inf, 77, -np.inf])
+    CP.print_w_color('\t' + check_array_for_infinity_elements(list_with_inf, True)[1], CP.BLUE)
+    CP.print_w_color('\t' + check_array_for_infinity_elements(list_without_inf, True)[1], CP.BLUE)
     # endregion
