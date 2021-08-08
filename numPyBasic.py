@@ -59,17 +59,15 @@ def print_numpy_build_configuration():
 # region 3. Write a NumPy program to test whether none of the elements of a given array is zero.
 def does_array_have_zeros(input_array=[], print_array=False):
     """Check if input array have any zeros.
-    First is boolean, second is string that
-    describes result in natural language.
 
     :param input_array:
         Array that should be checked.
     :param print_array:
-        Print array in answer string - yes or no.
+        Print input array in answer string - yes or no.
     :return:
         Tuple.
-        Boolean - is array contains zeros
-        String - result in natural language
+        Boolean - is array contains zeros.
+        String - result in natural language.
     """
     return_string = 'Array'
     return_bool = np.all(input_array)
@@ -91,17 +89,15 @@ def does_array_have_zeros(input_array=[], print_array=False):
 # region 4. Write a NumPy program to test whether any of the elements of a given array is non-zero.
 def does_array_have_non_zeros(input_array=[], print_array=False):
     """Check if input array have non-zero elements.
-    First is boolean, second is string that
-    describes result in natural language.
 
     :param input_array:
         Array that should be checked.
     :param print_array:
-        Print array in answer string - yes or no.
+        Print input array in answer string - yes or no.
     :return:
         Tuple.
-        Boolean - is array contains zeros
-        String - result in natural language
+        Boolean - is array contains zeros.
+        String - result in natural language.
     """
     return_string = 'Array'
     return_bool = np.any(input_array)
@@ -117,6 +113,45 @@ def does_array_have_non_zeros(input_array=[], print_array=False):
         return_string += 'contains only zeros.'
 
     return return_bool, return_string
+# endregion
+
+
+# region 5. Write a NumPy program to test a given array element-wise for finiteness (not infinity or not a Number).
+def check_array_for_infinite_elements(input_array, print_array=False):
+    """Check if input array have infinite elements.
+
+        :param input_array:
+            Array that should be checked.
+        :param print_array:
+            Print input array in answer string - yes or no.
+        :return:
+            Tuple.
+            Boolean - is array contains infinite elements.
+            String - result in natural language.
+        """
+
+    have_infinite_elements = False
+    check_list = np.isfinite(input_array)
+    infinite_indexes = []
+
+    for index, element in enumerate(check_list):
+        if not element:
+            infinite_indexes.append(index)
+            have_infinite_elements = True
+
+    result_string = 'Array'
+
+    if print_array:
+        result_string += ' ' + str(input_array) + ' '
+    else:
+        result_string += ' '
+
+    if have_infinite_elements:
+        result_string += 'have infinite elements at indexes ' + str(infinite_indexes) + '.'
+    else:
+        result_string += 'does not have any infinite elements.'
+
+    return have_infinite_elements, result_string
 # endregion
 
 
@@ -148,4 +183,11 @@ if __name__ == '__main__':
     CP.print_w_color('\nExercise 4:\n--------------------', CP.GREEN)
     CP.print_w_color('\t' + does_array_have_non_zeros(list_with_zeros, True)[1], CP.BLUE)
     CP.print_w_color('\t' + does_array_have_non_zeros(list_all_zeros, True)[1], CP.BLUE)
+    # endregion
+    # region Exercise 5.
+    CP.print_w_color('\nExercise 5:\n--------------------', CP.GREEN)
+    list_with_inf = np.array([np.nan, 3, 6, 8, np.inf])
+    list_without_inf = np.array([1, 2, 6, 8])
+    CP.print_w_color('\t' + check_array_for_infinite_elements(list_with_inf, True)[1], CP.BLUE)
+    CP.print_w_color('\t' + check_array_for_infinite_elements(list_without_inf, True)[1], CP.BLUE)
     # endregion
