@@ -57,7 +57,7 @@ def print_numpy_build_configuration():
 
 
 # region 3. Write a NumPy program to test whether none of the elements of a given array is zero.
-def does_array_have_zeros(input_array=[], print_array=False):
+def does_array_have_zeros(input_array=None, print_array=False):
     """Check if input array have any zeros.
 
     :param input_array:
@@ -87,7 +87,7 @@ def does_array_have_zeros(input_array=[], print_array=False):
 
 
 # region 4. Write a NumPy program to test whether any of the elements of a given array is non-zero.
-def does_array_have_non_zeros(input_array=[], print_array=False):
+def does_array_have_non_zeros(input_array=None, print_array=False):
     """Check if input array have non-zero elements.
 
     :param input_array:
@@ -117,7 +117,7 @@ def does_array_have_non_zeros(input_array=[], print_array=False):
 
 
 # region 5. Write a NumPy program to test a given array element-wise for finiteness (not infinity or not a Number).
-def check_array_for_infinite_elements(input_array, print_array=False):
+def check_array_for_infinite_elements(input_array=None, print_array=False):
     """Check if input array have infinite elements.
 
         :param input_array:
