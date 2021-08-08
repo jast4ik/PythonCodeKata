@@ -233,6 +233,12 @@ def check_array_for_nan_elements(input_array=None, print_array=False):
 # endregion
 
 
+# region 8.Write a NumPy program to test element-wise for complex number, real number of a given array.
+# Also test whether a given number is a scalar type or not.
+
+# endregion
+
+
 if __name__ == '__main__':
     # region Exercise 1
     CP.print_w_color('Exercise 1:\n--------------------', CP.GREEN)
