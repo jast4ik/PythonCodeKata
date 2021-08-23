@@ -80,3 +80,25 @@ if __name__ == "__main__":
     print("Original:\n{}".format(str(numpy_array)))
     print("Real part:\n{}".format(str(numpy_array.real)))
     print("Imaginary part:\n{}".format(str(numpy_array.imag)))
+
+    print("\n016 Write a NumPy program to find the number of elements of an array, \n"
+          "length of one array element in bytes and total bytes consumed by the elements.")
+    print("Size is:\t{}\nLength of element in bytes:\t{}\nTotal bytes:\t{}".format(
+        numpy_array.size, numpy_array.itemsize, numpy_array.nbytes
+    ))
+
+    print("\n017 Write a NumPy program to test whether each element of a 1-D array is also present in a second array.")
+    numpy_array = np.array([1, 2, 3, 4, 5, 5, 2])
+    print(np.in1d([1, 2, 88], numpy_array))
+
+    print("\n018 Write a NumPy program to find common values between two arrays.")
+    print(np.intersect1d([1, 2, 88], numpy_array))
+
+    print("\n019 Write a NumPy program to get the unique elements of an array.")
+    print(np.unique(numpy_array))
+
+    print("\n020 Write a NumPy program to find the set difference of two arrays. \n"
+          "The set difference will return the sorted, unique values in array1 that are not in array2.")
+    print(np.setdiff1d(numpy_array, [5, 3, 1]))
+
+
