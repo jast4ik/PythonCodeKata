@@ -165,3 +165,69 @@ if __name__ == "__main__":
         str(numpy_array_2),
         str(np.lexsort((numpy_array_2, numpy_array_1)))
     ))
+
+    print("\n031 Write a NumPy program to get the values and indices of the elements that are \n"
+          "bigger than 10 in a given array.")
+    numpy_array_1 = np.array([3, 565, 24, 76, -1, -676, 98, 0, -2])
+    print("{}\nxi > 10:\n{}\nindexes of xi > 10:\n{}".format(
+        str(numpy_array_1),
+        str(numpy_array_1[numpy_array_1 > 10]),
+        str(np.nonzero(numpy_array_1 > 10))
+    ))
+
+    print("\n032 Write a NumPy program to save a NumPy array to a text file.")
+    np.savetxt("array.txt", numpy_array_1, delimiter=',')
+
+    print("\n033 Write a NumPy program to find the memory size of a NumPy array.")
+    print("Size of {} is {} bytes.".format(
+        str(numpy_array_1),
+        str(numpy_array_1.itemsize * numpy_array_1.size)
+    ))
+
+    print("\n034 Write a NumPy program to create an array of ones and an array of zeros. ")
+    numpy_array_1 = np.zeros(6)
+    numpy_array_2 = np.ones(6)
+    print("Zeros:\n{}\nOnes:\n{}".format(
+        str(numpy_array_1),
+        str(numpy_array_2)
+    ))
+
+    print("\n035 Write a NumPy program to change the dimension of an array.")
+    numpy_array_2 = np.copy(numpy_array_1)
+    numpy_array_1.shape = (2, 3)
+    print("{}\n->\n{}".format(
+        str(numpy_array_2),
+        str(numpy_array_1)
+    ))
+
+    print("\n036 Write a NumPy program to create a contiguous flattened array.")
+    print("{}\n->\n{}".format(
+        str(numpy_array_1),
+        str(np.ravel(numpy_array_1))
+    ))
+
+    print("\n037 Write a NumPy program to create a 2-dimensional array of size 2 x 3 \n"
+          "(composed of 4-byte integer elements), also print the shape, type and data type of the array.")
+    numpy_array_1 = np.array([[1, 2, 3], [3, 4, 5]], dtype=np.int8)
+    print("{}\nShape:\t{}\nData type:\t{}".format(
+        str(numpy_array_1),
+        str(numpy_array_1.shape),
+        str(numpy_array_1.dtype)
+    ))
+
+    print("\n038 Write a NumPy program to create a new shape to an array without changing its data.")
+    print("{}\n->\n{}\n->{}".format(
+        str(numpy_array_1),
+        str(np.reshape(numpy_array_1, (1, 6))),
+        str(np.reshape(numpy_array_1, (3, 2)))
+    ))
+
+    print("\n039 Write a NumPy program to change the data type of an array.")
+    print("{}\n->\n{}".format(
+        str(numpy_array_1.dtype),
+        str(numpy_array_1.astype(float).dtype)
+    ))
+
+    print("\n040 Write a NumPy program to create a new array of 3*5, filled with 2.")
+    numpy_array_1 = np.full((3, 5), 2, dtype=np.uint) * 2
+    print(numpy_array_1)
