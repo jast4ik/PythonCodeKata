@@ -33,4 +33,4 @@ if __name__ == "__main__":
           [1,   -2, 4,  -2, 6],
           [3,   2,  2,  -4, 7]]
 
-    sum_prod_diags(M1)
+    print(sum_prod_diags(M1))
