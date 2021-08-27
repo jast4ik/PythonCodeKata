@@ -9,7 +9,7 @@ def snail(snail_map):
     while len(snail_map) > 0:
         snail_list += [x for x in snail_map.pop(0)]
         snail_list += [snail_map[i].pop(-1) for i in range(len(snail_map))]
-        snail_list += ([x for x in snail_map.pop(-1)[::-1]] if len(snail_map) > 0 else [])
+        snail_list += [x for x in snail_map.pop(-1)[::-1]] if len(snail_map) > 0 else []
         snail_list += [snail_map[i].pop(0) for i in reversed(range(len(snail_map)))]
 
     return snail_list
